@@ -16,11 +16,15 @@
 		Gender: Male<input type="radio" name="gender" value="male">
 				FeMale<input type="radio" name="gender" value="female"><bR><br> 
 		
+		ContactNum: <input type="text" name="contactNum"/><br><br> 
 		
 		Email: <input type="text" name="email"/><br><br> 
 		
 		
 		Password: <input type="password" name="password"/><br><br> 
+		Confirm Password: <input type="password" id="confirmPassword" name="confirmPassword" required/><br><br>
+		
+		BornYear  : <input type="text" name="bornYear"/><br><BR> 
 	
 		<input type="submit" value="Signup"/>
 	
