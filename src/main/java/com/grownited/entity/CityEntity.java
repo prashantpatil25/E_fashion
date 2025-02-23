@@ -14,7 +14,7 @@ public class CityEntity {
 		private Integer cityId;
 		private String cityName;
 		private Integer stateId;
-		
+
 		public Integer getCityId() {
 			return cityId;
 		}

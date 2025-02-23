@@ -7,10 +7,10 @@
 <title>New City</title>
 </head>
 <body>
-	<h2>New City</h2>
-	<form action="">
-		CityName:<input type="text"/><br><br>
-		<input type="submit" value="Save City">
+<h2>New City</h2>
+	<form action="savecity" method="post">
+		CityName : <input type="text" name="cityName"/><br><br> 
+		<input type="submit" value="Save City"/>
 	</form>
 </body>
 </html>
