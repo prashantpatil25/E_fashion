@@ -30,11 +30,20 @@ public class SessionController {
 		System.out.println(userEntity.getFirstName());
 		System.out.println(userEntity.getLastName());
 		System.out.println(userEntity.getGender());
+		System.out.println(userEntity.getContactNum());
 		System.out.println(userEntity.getEmail());
 		System.out.println(userEntity.getPassword());
+		System.out.println(userEntity.getConfirmPassword());
+		System.out.println(userEntity.getBornYear());
 		return "Login";// jsp
 	}
-
+	@PostMapping("authenticate")
+	public String auththenticate(String email, String password) {
+		//read
+		System.out.println(email);
+		System.out.println(password);
+		return "Login";
+	}
 	// open forgetpassword jsp
 	@GetMapping("/forgetpassword")
 	public String forgetPassword() {
