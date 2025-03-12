@@ -23,9 +23,10 @@ public class UserEntity {
 	private String city;
 	private String bornYear;
 	private String gender;
-	private String role;// member,security,chairman,admin
+	private String role;// admin,buyer,seller
 	private Date createdAt;// X -> today's date
 	private Boolean active; // X -> true
+	private String otp;
 	public Integer getUserId() {
 		return userId;
 	}
@@ -105,6 +106,13 @@ public class UserEntity {
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
+	public String getOtp() {
+		return otp;
+	}
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+	
 
 
 }

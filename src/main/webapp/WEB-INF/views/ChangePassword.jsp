@@ -7,7 +7,7 @@
 <title>Change Password</title>
 </head>
 <body>
-<h2>Chage Password</h2>
+<h2>Change Password</h2>
 	<form action="updatepassword" method="post">
 	 
 		Email: <input type="text" name="email"/><br><br> 
