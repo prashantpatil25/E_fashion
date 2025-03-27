@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AreaController {
 	
 	@GetMapping("newarea")
-	public String NewArea() {
+	public String newArea() {
 		return "NewArea";
 	}
 	
 	@PostMapping("savearea")
-	public String newArea() {
+	public String saveArea() {
 		return "NewArea";
 	}
 
