@@ -20,7 +20,7 @@ public class SessionController {
 
 	@GetMapping("login")
 	public String login(String email, String password) {
-		return "Login";// jsp name
+		return "userd";// jsp name
 	}
 
 	@PostMapping("saveuser")

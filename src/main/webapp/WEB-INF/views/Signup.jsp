@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Pages / Register - NiceAdmin Bootstrap Template</title>
+<title> Register </title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -152,6 +152,13 @@
 												year!</div>
 										</div>
 
+										<div class="input-group mb-3">
+											<input type="file" class="form-control" placeholder="Profile"
+												name="profilePic" />
+											<div class="input-group-text">
+												<span class="bi bi-cake"></span>
+											</div>
+										</div>
 										<div class="col-12">
 											<div class="form-check">
 												<input class="form-check-input" name="terms" type="checkbox"
