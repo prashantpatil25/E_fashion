@@ -7,13 +7,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "subcategory")
+@Table(name = "subCategory")
 public class SubCategoryEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer subCategoryId;
-	private Integer categoryId;//fk:category
-	private Integer subCategoryName;
+	private Integer categoryId;  //fk:category
+	private String subCategoryName;
+	
+	
 	public Integer getSubCategoryId() {
 		return subCategoryId;
 	}
@@ -26,12 +29,12 @@ public class SubCategoryEntity {
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
-	public Integer getSubCategoryName() {
+	public String getSubCategoryName() {
 		return subCategoryName;
 	}
-	public void setSubCategoryName(Integer subCategoryName) {
+	public void setSubCategoryName(String subCategoryName) {
 		this.subCategoryName = subCategoryName;
 	}
-	
+
 	
 }

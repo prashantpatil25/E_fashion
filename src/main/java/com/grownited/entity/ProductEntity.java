@@ -1,7 +1,6 @@
 package com.grownited.entity;
 
 import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,22 +8,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class ProductEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer productId;
-	private String productName;
-	private Integer categoryId;
-	private Integer subCategoryId;
-	private Double basePrice;
-	private Double offerPrice;
-	private Double offerPercentage;
-	private String productDetail;
-	private String productImageURL1;
-	private String productImageURL2;
-	private String productImageURL3;
-	private Integer quantity;
+	private Integer productId;	
+	private String productName;	
+	private Integer categoryId;	//pk
+	private Integer subCategoryId;	//fk : user
+	private Integer basePrice;	//fk : product
+	private Integer offerPrice;	
+	private Double offerPercentage;	
+	private String productDetail;	
+	private String productImageURL1;	
+	private String productImageURL2;	
+	private String productImageURL3;	//PK 
+	private Integer quantity;	//fk : User
 	private Date createdAt;
 	
 	public Integer getProductId() {
@@ -51,16 +51,16 @@ public class ProductEntity {
 	public void setSubCategoryId(Integer subCategoryId) {
 		this.subCategoryId = subCategoryId;
 	}
-	public Double getBasePrice() {
+	public Integer getBasePrice() {
 		return basePrice;
 	}
-	public void setBasePrice(Double basePrice) {
+	public void setBasePrice(Integer basePrice) {
 		this.basePrice = basePrice;
 	}
-	public Double getOfferPrice() {
+	public Integer getOfferPrice() {
 		return offerPrice;
 	}
-	public void setOfferPrice(Double offerPrice) {
+	public void setOfferPrice(Integer offerPrice) {
 		this.offerPrice = offerPrice;
 	}
 	public Double getOfferPercentage() {
@@ -106,5 +106,5 @@ public class ProductEntity {
 		this.createdAt = createdAt;
 	}
 	
-	
+		
 }

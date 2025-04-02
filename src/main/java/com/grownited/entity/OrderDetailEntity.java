@@ -1,5 +1,7 @@
 package com.grownited.entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,16 +9,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "orderdetails")
+@Table(name = "orderDetail")
 public class OrderDetailEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer orderDetailId;
+	private Integer orderDetailId;	
 	private Integer orderId;	//fk : order
-	private Integer productId;	//fk : product
+	private Integer productId;	   //fk : product
 	private Integer quantity;	
-	private Double price;
-    private String status;
+	private BigDecimal price;	
+	private String status;
+	
 	public Integer getOrderDetailId() {
 		return orderDetailId;
 	}
@@ -41,10 +45,10 @@ public class OrderDetailEntity {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public Double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 	public String getStatus() {
@@ -53,6 +57,5 @@ public class OrderDetailEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-    
-    
+
 }

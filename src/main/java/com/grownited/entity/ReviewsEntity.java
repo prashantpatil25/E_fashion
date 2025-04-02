@@ -1,7 +1,6 @@
 package com.grownited.entity;
 
 import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,16 +8,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="reviews")
+@Table(name = "reviews")
 public class ReviewsEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer reviewId;	//pk
 	private Integer userId;	//fk :user
 	private Integer productId;	//fk : product
 	private String reviewText;	
-	private Integer rating;	
-	private Date datecreatedAt;
+	private String rating;	
+	private Date createdAt;
 	
 	public Integer getReviewId() {
 		return reviewId;
@@ -44,18 +44,16 @@ public class ReviewsEntity {
 	public void setReviewText(String reviewText) {
 		this.reviewText = reviewText;
 	}
-	public Integer getRating() {
+	public String getRating() {
 		return rating;
 	}
-	public void setRating(Integer rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	public Date getDatecreatedAt() {
-		return datecreatedAt;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
-	public void setDatecreatedAt(Date datecreatedAt) {
-		this.datecreatedAt = datecreatedAt;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}	
-	
-	
 }

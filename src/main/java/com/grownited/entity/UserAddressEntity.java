@@ -7,20 +7,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "useraddress")
+@Table(name = "user_address")
 public class UserAddressEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer userAddressId;//pk
-	private Integer userId;//fk
-	private String title;//home,office,etc..
+	private Integer userAddressId; //pk
+	private Integer userId; //fk:user
+	private String title; //home, office, etc
 	private String unitName;
 	private String street;
 	private String landMark;
-	private Integer cityId;//fk:city
-	private Integer stateId;//fk:state
+	private Integer cityId;	//fk : city
+	private Integer stateId; //fk : state
 	private String addressDetail;
-	private String zipCode;
+	private Integer zipCode	;
+	
 	public Integer getUserAddressId() {
 		return userAddressId;
 	}
@@ -69,18 +71,21 @@ public class UserAddressEntity {
 	public void setStateId(Integer stateId) {
 		this.stateId = stateId;
 	}
+	public Integer getZipCode() {
+		return zipCode;
+	}
+	public void setZipCode(Integer zipCode) {
+		this.zipCode = zipCode;
+	}
 	public String getAddressDetail() {
 		return addressDetail;
 	}
 	public void setAddressDetail(String addressDetail) {
 		this.addressDetail = addressDetail;
-	}
-	public String getZipCode() {
-		return zipCode;
-	}
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
-	
-	
+	}	
 }
+
+
+
+	
+	

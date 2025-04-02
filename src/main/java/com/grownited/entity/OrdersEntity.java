@@ -1,7 +1,7 @@
 package com.grownited.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,15 +9,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="orders")
+@Table(name = "orders")
 public class OrdersEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer orderId;			
-	private Integer userId;	//fk : user		
-	private String status;	///pending , shipped , delievered , cancel , etc		
-	private Double totalAmount;
+	private Integer orderId;
+	private Integer userId;
+	private String Status;
+	private BigDecimal totalAmount;
 	private Date createdAt;
+	private Integer paymentId;
+	
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -31,15 +34,15 @@ public class OrdersEntity {
 		this.userId = userId;
 	}
 	public String getStatus() {
-		return status;
+		return Status;
 	}
 	public void setStatus(String status) {
-		this.status = status;
+		Status = status;
 	}
-	public Double getTotalAmount() {
+	public BigDecimal getTotalAmount() {
 		return totalAmount;
 	}
-	public void setTotalAmount(Double totalAmount) {
+	public void setTotalAmount(BigDecimal totalAmount) {
 		this.totalAmount = totalAmount;
 	}
 	public Date getCreatedAt() {
@@ -48,6 +51,14 @@ public class OrdersEntity {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
+	public Integer getPaymentId() {
+		return paymentId;
+	}
+	public void setPaymentId(Integer paymentId) {
+		this.paymentId = paymentId;
+	}
+	
+	
+	
 	
 }

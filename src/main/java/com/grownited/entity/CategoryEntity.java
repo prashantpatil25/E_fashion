@@ -9,10 +9,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "category")
 public class CategoryEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer categoryId;
 	private String categoryName;
+	
+	
 	public Integer getCategoryId() {
 		return categoryId;
 	}
@@ -24,6 +27,5 @@ public class CategoryEntity {
 	}
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
-	}
-	
+	}	
 }
