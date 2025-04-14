@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.CategoryEntity;
@@ -64,4 +65,19 @@ public class HomeController {
 		public String saveIndex() {
 			return "Index";
 		}
+		
+		@GetMapping("/category/{categoryId}")
+		public String getProductsByCategory(@PathVariable("categoryId") Integer categoryId, Model model, HttpSession session) {
+		    List<ProductEntity> filteredProducts = productRepository.findByCategoryId(categoryId);
+		    model.addAttribute("allProduct", filteredProducts);
+
+		    UserEntity user = (UserEntity) session.getAttribute("user");
+		    if (user != null) {
+		        Integer totalWishlist = wishlistRepository.findByUserId(user.getUserId()).size();
+		        model.addAttribute("totalWishlist", totalWishlist);
+		    }
+
+		    return "Home";
+		}
+
 }

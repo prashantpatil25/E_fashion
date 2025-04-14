@@ -21,8 +21,16 @@
             margin: 0;
             padding: 0;
         }
+		        
+		 body {
+		    font-family: 'Poppins', sans-serif;
+		    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+		    padding: 40px 20px;
+		    min-height: 100vh;
+		}
+        
 
-        body {
+        /* body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #e0eafc, #cfdef3);
             height: 100vh;
@@ -30,9 +38,10 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-        }
+        } */
 
         .form-container {
+        	margin: 0 auto;
             background: white;
             padding: 30px 40px;
             border-radius: 20px;
@@ -98,6 +107,10 @@
         .back-link a:hover {
             text-decoration: underline;
         }
+        
+        html {
+        scroll-behavior: smooth;
+    }
     </style>
 
     <!-- Optional JS Validation for Zip Code -->
@@ -111,6 +124,9 @@
             return true;
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -146,8 +162,8 @@
 
             <!-- State Selection -->
             <label class="form-label" for="stateId">State</label>
-            <select name="stateId" id="stateId" class="form-select" required>
-                <option value="">Select State</option>
+            <select name="stateId" id="stateId" class="form-select" required onchange="getCity()">
+                <option value="-1">Select State</option>
                 <c:forEach items="${allState}" var="s">
                     <option value="${s.stateId}">${s.stateName}</option>
                 </c:forEach>
@@ -156,7 +172,7 @@
             <!-- City Selection -->
             <label class="form-label" for="cityId">City</label>
             <select name="cityId" id="cityId" class="form-select" required>
-                <option value="">Select City</option>
+                <option value="-1">Select City</option>
                 <c:forEach items="${allCity}" var="c">
                     <option value="${c.cityId}">${c.cityName}</option>
                 </c:forEach>
@@ -174,6 +190,36 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</script>
+	<script type="text/javascript">
 
+	function getCity(){
+		console.log("State Change");
+		let stateId = document.getElementById("stateId").value;
+		console.log(stateId);	
+		//url -> json REST 
+		
+		  $.get( "getallcitybystateid/"+stateId, function() {
+			})
+			  .done(function(data) {
+			    console.log(data);
+			    //fill the subcategory 
+			    $('#cityId').empty().append('<option selected="selected" value="-1">Select City</option>')
+			    
+			    for (var i = 0; i < data.length; i++) {
+      			  $('#cityId').append('<option value="' + data[i].cityId + '">' + data[i].cityName + '</option>');
+   				 }
+			    
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  
+		
+	}
+
+
+</script> 
+	
 </body>
 </html>

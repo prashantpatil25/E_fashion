@@ -154,7 +154,7 @@
 		<li class="nav-heading">Manage</li>
 
 		<li class="nav-item">
-			<a class="nav-link" href="admindashboard"> <i class="bi bi-person"></i> <span>Seller</span> </a>
+			<a class="nav-link" href="admindashboard"> <i class="bi bi-person"></i> <span>Admin</span> </a>
 		</li>
 		<!-- End Seller Nav -->
 

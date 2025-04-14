@@ -42,7 +42,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo4.png" alt="">
-        <span class="d-none d-lg-block">MRSH ashion</span>
+        <span class="d-none d-lg-block">E fashion</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -672,7 +672,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>MRSH ashion</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>E fashion</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->

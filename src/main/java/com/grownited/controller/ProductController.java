@@ -39,10 +39,10 @@ public class ProductController {
 	
 	@GetMapping("product")
 	public String product(Model model) {
-        List<CategoryEntity> allCategory = repoCategory.findAll();// all state
+        List<CategoryEntity> allCategory = repoCategory.findAll();
 		
 		model.addAttribute("allCategory",allCategory);
-        List<SubCategoryEntity> allSubCategory = repoSubCategory.findAll();// all state
+        List<SubCategoryEntity> allSubCategory = repoSubCategory.findAll();
 		
 		model.addAttribute("allSubCategory",allSubCategory);
 		return "Product";
@@ -136,26 +136,49 @@ public class ProductController {
 			System.out.println(productImage3.getOriginalFilename());
 			
 			Optional<ProductEntity> op = repositoryProduct.findById(productEntity.getProductId());
-			
 			try {
-				Map result = cloudinary.uploader().upload(productImage1.getBytes(), ObjectUtils.emptyMap());
-				System.out.println(result);
-				System.out.println(result.get("url"));
-				productEntity.setProductImageURL1(result.get("url").toString());
-				
-				Map result1 = cloudinary.uploader().upload(productImage2.getBytes(), ObjectUtils.emptyMap());
-				System.out.println(result1);
-				System.out.println(result1.get("url"));
-				productEntity.setProductImageURL2(result1.get("url").toString());
-				
-				Map result2 = cloudinary.uploader().upload(productImage3.getBytes(), ObjectUtils.emptyMap());
-				System.out.println(result2);
-				System.out.println(result2.get("url"));
-				productEntity.setProductImageURL3(result2.get("url").toString());
+			    if (!productImage1.isEmpty()) {
+			        Map result = cloudinary.uploader().upload(productImage1.getBytes(), ObjectUtils.emptyMap());
+			        productEntity.setProductImageURL1(result.get("url").toString());
+			    } else {
+			        productEntity.setProductImageURL1(op.get().getProductImageURL1());
+			    }
+
+			    if (!productImage2.isEmpty()) {
+			        Map result1 = cloudinary.uploader().upload(productImage2.getBytes(), ObjectUtils.emptyMap());
+			        productEntity.setProductImageURL2(result1.get("url").toString());
+			    } else {
+			        productEntity.setProductImageURL2(op.get().getProductImageURL2());
+			    }
+
+			    if (!productImage3.isEmpty()) {
+			        Map result2 = cloudinary.uploader().upload(productImage3.getBytes(), ObjectUtils.emptyMap());
+			        productEntity.setProductImageURL3(result2.get("url").toString());
+			    } else {
+			        productEntity.setProductImageURL3(op.get().getProductImageURL3());
+			    }
+
 			} catch (IOException e) {
-				e.printStackTrace();
+			    e.printStackTrace();
 			}
-			
+
+			/*
+			 * try { Map result = cloudinary.uploader().upload(productImage1.getBytes(),
+			 * ObjectUtils.emptyMap()); System.out.println(result);
+			 * System.out.println(result.get("url"));
+			 * productEntity.setProductImageURL1(result.get("url").toString());
+			 * 
+			 * Map result1 = cloudinary.uploader().upload(productImage2.getBytes(),
+			 * ObjectUtils.emptyMap()); System.out.println(result1);
+			 * System.out.println(result1.get("url"));
+			 * productEntity.setProductImageURL2(result1.get("url").toString());
+			 * 
+			 * Map result2 = cloudinary.uploader().upload(productImage3.getBytes(),
+			 * ObjectUtils.emptyMap()); System.out.println(result2);
+			 * System.out.println(result2.get("url"));
+			 * productEntity.setProductImageURL3(result2.get("url").toString()); } catch
+			 * (IOException e) { e.printStackTrace(); }
+			 */		
 			System.out.println(productEntity.getProductImageURL1());
 			if(op.isPresent())
 			{

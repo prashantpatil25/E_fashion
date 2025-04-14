@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.grownited.entity.AreaEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.UserRepository;
 import com.grownited.service.MailService;
@@ -153,6 +154,35 @@ public class SessionController {
 	@GetMapping("deleteuser")
 	public String deleteuser(Integer userId) {
 		repousers.deleteById(userId);//delete from members where memberID = :memberId
+		return "redirect:/listuser";
+	}
+	
+	@GetMapping("edituser")
+	public String editUser(Integer userId,Model model) {
+		Optional<UserEntity> op = repousers.findById(userId);
+		if (op.isEmpty()) {
+			return "redirect:/listuser";
+		} else {
+			model.addAttribute("user",op.get());
+			return "EditUser";
+		}
+	}
+	
+	@PostMapping("updateuser")
+	public String updateUser(UserEntity userEntity) {//pcode vhreg type vid 
+		
+		System.out.println(userEntity.getUserId());//id? db? 
+		Optional<UserEntity> op = repousers.findById(userEntity.getUserId());
+		
+		if(op.isPresent())
+		{
+			UserEntity dbUser = op.get(); //pcode vhreg type id userId 
+			dbUser.setFirstName(userEntity.getFirstName());//code
+			dbUser.setLastName(userEntity.getLastName());
+			dbUser.setEmail(userEntity.getEmail());
+			dbUser.setContactNum(userEntity.getContactNum());
+			repousers.save(dbUser);
+		}
 		return "redirect:/listuser";
 	}
 

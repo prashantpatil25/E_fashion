@@ -8,9 +8,25 @@ import com.grownited.entity.ProductEntity;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
-	@Query(value ="select p.*,c.category_name,sc.sub_category_name from category c,sub_category sc,product p where p.category_id=c.category_id and p.sub_category_id=sc.sub_category_id",nativeQuery = true)
-	List<Object[]> getAll();
+	/*
+	 * @Query(value
+	 * ="select p.*,c.category_name,sc.sub_category_name from category c,sub_category sc,product p where p.category_id=c.category_id and p.sub_category_id=sc.sub_category_id"
+	 * ,nativeQuery = true) List<Object[]> getAll();
+	 */
 	
+	/*
+	 * @Query("SELECT p.productId, p.productName, p.basePrice, p.offerPrice, p.offerPercentage, p.productImageURL1 FROM ProductEntity p"
+	 * ) List<Object[]> getAll();
+	 */
+	@Query("SELECT p.productId, p.productName, p.basePrice, p.offerPrice, p.offerPercentage, p.productImageURL1 FROM ProductEntity p")
+	List<Object[]> getAll();
+
 	@Query(value ="select p.*,c.category_name,sc.sub_category_name from category c,sub_category sc,product p where p.category_id=c.category_id and p.sub_category_id=sc.sub_category_id and p.product_id = :productId",nativeQuery = true)
 	List<Object[]> getByProductId(Integer productId);
+	
+	List<ProductEntity> findByCategoryId(Integer categoryId);
+	
+	
+	
+
 }

@@ -70,8 +70,8 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
-						<img src="ashion/images/icons/logo_home.png" alt="IMG-LOGO">
+					<a href="#" class="logo" >
+						<img src="ashion/images/icons/efashionlogo.png" alt="IMG-LOGO" width=130px height=110px>
 					</a>
 
 					<!-- Menu desktop -->
@@ -482,9 +482,9 @@
 						GET IN TOUCH
 					</h4>
 
-					<p class="stext-107 cl7 size-201">
+					<!-- <p class="stext-107 cl7 size-201">
 						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-					</p>
+					</p> -->
 
 					<div class="p-t-27">
 						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
@@ -546,7 +546,7 @@
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="home" target="_blank">MRSH</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="home" target="_blank">E fashion</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>

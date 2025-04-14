@@ -56,14 +56,23 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${cart}" var="m">
+            	<c:forEach items="${cart}" var="m">
+    				<tr>
+				        <td>${m[0]}</td> <!-- quantity -->
+				        <td>${m[1]}</td> <!-- product name -->
+				        <td>${m[2]}</td> <!-- first name -->
+				        <td>${m[3]}</td> <!-- last name -->
+    				</tr>
+				</c:forEach>
+            	
+                <%-- <c:forEach items="${cart}" var="m">
                     <tr>
                         <td>${m[2]}</td>
                         <td>${m[4]}</td>
                         <td>${m[5]}</td>
                         <td>${m[6]}</td>
                     </tr>
-                </c:forEach>
+                </c:forEach> --%>
             </tbody>
         </table>
 

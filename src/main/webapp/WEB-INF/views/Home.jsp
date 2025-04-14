@@ -75,8 +75,8 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
-						<img src="ashion/images/icons/logo_home.png" alt="IMG-LOGO">
+					<a href="#" class="logo" >
+						<img src="ashion/images/icons/efashionlogo.png" alt="IMG-LOGO" width=130px height=110px>
 					</a>
 
 					<!-- Menu desktop -->
@@ -91,7 +91,7 @@
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shopingcart">Features</a>
+								<a href="home">Features</a>
 							</li>
 
 							<li>
@@ -118,12 +118,12 @@
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="${totalWishlist}">
+						<a href="viewuser?userId=1" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="${totalWishlist}">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							<img src="${user.profilePicPath}"  height="40px" width="40px" alt="Profile" class="rounded-circle" ><br>${user.firstName}
-							
+						<a href="viewuser?userId=1" class="flex-c-m trans-04 p-lr-25">
+							<img src="${user.profilePicPath}"  height="40px" width="40px" alt="Profile" class="rounded-circle" >
+							<span class="d-none d-md-block dropdown-toggle ps-2"></span>
 						</a>
 						
 						
@@ -179,7 +179,7 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="viewuser" class="flex-c-m p-lr-10 trans-04">
 							My Account
 						</a>
 
@@ -256,7 +256,7 @@
 				</div>
 			</div>
 			
-			<div class="header-cart-content flex-w js-pscroll">
+<!-- 			<div class="header-cart-content flex-w js-pscroll">
 				<ul class="header-cart-wrapitem w-full">
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
@@ -311,7 +311,7 @@
 					<div class="header-cart-total w-full p-tb-40">
 						Total: $75.00
 					</div>
-
+ -->
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shopingcart" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							View Cart
@@ -410,7 +410,7 @@
 
 	<!-- Banner -->
 	<div class="sec-banner bg0 p-t-80 p-b-50">
-		<div class="container">
+		<div class="container"style="background-color: #E6F9E6;">
 			<div class="row">
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
@@ -487,8 +487,8 @@
 					</div>
 				</div>
 				
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
+ 				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+					Block1
 					<div class="block1 wrap-pic-w">
 						<img src="ashion/images/banner-07.jpg" alt="IMG-BANNER">
 
@@ -511,9 +511,9 @@
 						</a>
 					</div>
 				</div>
-
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
+ 
+				<!-- <div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+					Block1
 					<div class="block1 wrap-pic-w">
 						<img src="ashion/images/banner-08.jpg" alt="IMG-BANNER">
 
@@ -536,7 +536,7 @@
 						</a>
 					</div>
 				</div>
-
+ -->
 				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
@@ -568,7 +568,7 @@
 
 	<!-- Product -->
 	<section class="bg0 p-t-23 p-b-140">
-		<div class="container">
+		<div class="container" style="background-color: #E6F9E6;">
 			<div class="p-b-10">
 				<h3 class="ltext-103 cl5">
 					Product Overview
@@ -597,9 +597,9 @@
 						Watches
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+					<!-- <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
 						Bag
-					</button>
+					</button> -->
 					
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".accessories">
 						Accessories
@@ -825,13 +825,20 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="row isotope-grid">
-
+			<!-- <div style="margin-bottom: 20px;">
+   				 <ul class="nav nav-tabs">
+			        <li><a href="/home">All</a></li>
+			        <li><a href="/category/1">Man</a></li>
+			        <li><a href="/category/2">Woman</a></li>
+			        <li><a href="/category/3">Kids</a></li>
+    			</ul>
+			</div> -->
+			<div class="row isotope-grid" >
+				
 
 				<c:forEach items="${allProduct}" var="p">
 				
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
@@ -852,7 +859,7 @@
 									<s>${p.basePrice }</s>
 								</span>
 								<span class="stext-105 cl3">
-									${p.offerPrice } <sub>${p.offerPercentage}%</sub>
+									<b>${p.offerPrice }</b> <sub style="color:green"><b>${p.offerPercentage}%</b></sub>
 								</span>
 							</div>
 
@@ -861,23 +868,42 @@
 									<img class="icon-heart1 dis-block trans-04" src="ashion/images/icons/icon-heart-01.png" alt="ICON">
 									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="ashion/images/icons/icon-heart-02.png" alt="ICON">
 								</a>
-							</div>
+							</div><br><br>
+							
+							
+							    <div style="display: flex; gap: 10px;">
+							        <a href="userviewproduct?productId=${p.productId}" 
+							           class="flex-c-m stext-101 cl0 size-102 bor1 hov-btn1 trans-04 js-addcart-detail"
+							           style="font-size: 12px; padding: 5px 10px; background-color: #28a745; color: white;">
+							           Add to Cart
+							        </a>
+							
+							        <a href="buynow?productId=${p.productId}" 
+							           class="flex-c-m stext-101 cl0 size-102 bor1 hov-btn1 trans-04 js-addcart-detail"
+							           style="font-size: 12px; padding: 5px 10px; background-color: #007bff; color: white;">
+							           Buy Now
+							        </a>
+							    </div>
+						
+
+
 						</div>
 					</div>
 				</div>
 				</c:forEach>
 				
-
+		
 				 
 				 
 			            
 			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45">
+			
+		</div>
+		<div class="flex-c-m flex-w w-full p-t-45">
 				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 					Load More
 				</a>
 			</div>
-		</div>
 	</section>
 
 
@@ -954,9 +980,9 @@
 						GET IN TOUCH
 					</h4>
 
-					<p class="stext-107 cl7 size-201">
+					<!-- <p class="stext-107 cl7 size-201">
 						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-					</p>
+					</p> -->
 
 					<div class="p-t-27">
 						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
@@ -1018,7 +1044,7 @@
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="home" target="_blank">MRSH ashion</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="home" target="_blank">E fashion</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>

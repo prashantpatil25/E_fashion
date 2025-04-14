@@ -66,7 +66,7 @@
                                             <div class="d-flex gap-2">
                                                 <a href="viewuser?userId=${m.userId}" class="btn btn-sm btn-primary">View</a>
                                                 <a href="deleteuser?userId=${m.userId}" class="btn btn-sm btn-danger">Delete</a>
-                                                <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                                                <a href="edituser?userId=${m.userId}" class="btn btn-sm btn-warning">Edit</a>
                                             </div>
                                         </td>
                                     </tr>

@@ -74,10 +74,9 @@
 
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
-
-					<!-- Logo desktop -->
-					<a href="#" class="logo"> <img
-						src="ashion/images/icons/logo_home.png" alt="IMG-LOGO">
+<!-- Logo desktop -->		
+					<a href="#" class="logo" >
+						<img src="ashion/images/icons/efashionlogo.png" alt="IMG-LOGO" width=130px height=110px>
 					</a>
 
 					<!-- Menu desktop -->
@@ -131,7 +130,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->
 			<div class="logo-mobile">
-				<a href="home"><img src="ashion/images/icons/logo-01.png"
+				<a href="home"><img src="ashion/images/icons/efashionlogo.png"
 					alt="IMG-LOGO"></a>
 			</div>
 
@@ -202,11 +201,7 @@
 		<div
 			class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
-				<button
-					class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="ashion/images/icons/icon-close2.png" alt="CLOSE">
-				</button>
-
+				
 				<form class="wrap-search-header flex-w p-l-15">
 					<button class="flex-c-m trans-04">
 						<i class="zmdi zmdi-search"></i>
@@ -232,7 +227,7 @@
 				</div>
 			</div>
 
-			<div class="header-cart-content flex-w js-pscroll">
+			<!-- <div class="header-cart-content flex-w js-pscroll">
 				<ul class="header-cart-wrapitem w-full">
 					<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
@@ -272,7 +267,7 @@
 				</ul>
 
 				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">Total: $75.00</div>
+					<div class="header-cart-total w-full p-tb-40">Total: $75.00</div> -->
 
 					<div class="header-cart-buttons flex-w w-full">
 						<a href="shopingcart"
@@ -374,9 +369,9 @@
 											</div>
 										</div>
 
-										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+										<a href="addtocart?productId=${product.productId}" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 											Add to cart
-										</button>
+										</a>
 									</div>
 								</div>	
 							</div>
@@ -753,6 +748,7 @@
 							.parent().find('.js-name-detail').html();
 					$(this).on('click', function() {
 						swal(nameProduct, "is added to cart !", "success");
+						
 					});
 				});
 	</script>

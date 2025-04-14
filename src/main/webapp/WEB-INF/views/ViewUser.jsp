@@ -70,8 +70,8 @@
         </table>
 
         <div class="text-center">
-            <a href="listuser" class="btn btn-primary btn-back">
-                <i class="bi bi-arrow-left"></i> Back
+            <a href="/login" class="btn btn-primary btn-back">
+                <i class="bi bi-arrow-left"></i> Log Out
             </a>
         </div>
     </div>

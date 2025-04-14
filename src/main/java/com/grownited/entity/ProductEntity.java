@@ -1,6 +1,8 @@
 package com.grownited.entity;
 
 import java.util.Date;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,9 +19,12 @@ public class ProductEntity {
 	private String productName;	
 	private Integer categoryId;	//pk
 	private Integer subCategoryId;	//fk : user
-	private Integer basePrice;	//fk : product
-	private Integer offerPrice;	
+	private Double basePrice; // Change Integer to Double
+	private Double offerPrice; // Change Integer to Double
+
+	
 	private Double offerPercentage;	
+	@Column(columnDefinition = "TEXT")
 	private String productDetail;	
 	private String productImageURL1;	
 	private String productImageURL2;	
@@ -51,16 +56,16 @@ public class ProductEntity {
 	public void setSubCategoryId(Integer subCategoryId) {
 		this.subCategoryId = subCategoryId;
 	}
-	public Integer getBasePrice() {
+	public Double getBasePrice() {
 		return basePrice;
 	}
-	public void setBasePrice(Integer basePrice) {
+	public void setBasePrice(Double basePrice) {
 		this.basePrice = basePrice;
 	}
-	public Integer getOfferPrice() {
+	public Double getOfferPrice() {
 		return offerPrice;
 	}
-	public void setOfferPrice(Integer offerPrice) {
+	public void setOfferPrice(Double offerPrice) {
 		this.offerPrice = offerPrice;
 	}
 	public Double getOfferPercentage() {

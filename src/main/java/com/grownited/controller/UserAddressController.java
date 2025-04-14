@@ -42,7 +42,7 @@ public class UserAddressController {
 		return "UserAddress";
 	}
 	
-	@PostMapping("saveUserAddress")
+	@PostMapping("saveuseraddress")
 	public String saveUserAddress(UserAddressEntity entityuseraddress, HttpSession session) {
 		System.out.println(entityuseraddress.getTitle());
 	    System.out.println(entityuseraddress.getUnitName());

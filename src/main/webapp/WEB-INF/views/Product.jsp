@@ -99,6 +99,9 @@
             text-decoration: underline;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -106,8 +109,9 @@
     <div class="form-container">
         <h2>Add Product</h2>
 
-        <form action="saveproduct" method="post" enctype="multipart/form-data">
-
+        <!-- <form action="saveproduct" method="post" enctype="multipart/form-data"> -->
+		<form action="saveproduct" method="post" enctype="multipart/form-data" onsubmit="cleanFormBeforeSubmit()">
+		
             <!-- Product Fields -->
             <label class="form-label" for="productName">Product Name</label>
             <input type="text" name="productName" id="productName" class="form-control" placeholder="Enter Product Name" required>
@@ -122,7 +126,9 @@
             <input type="text" name="offerPercentage" id="offerPercentage" class="form-control" placeholder="Enter Offer Percentage">
 
             <label class="form-label" for="productDetail">Product Detail</label>
-            <input type="text" name="productDetail" id="productDetail" class="form-control" placeholder="Enter Product Details">
+            <textarea name="productDetail" rows="3" placeholder="Enter Product Details" class="form-control"></textarea>
+            
+            <!-- <input type="text" name="productDetail" id="productDetail" class="form-control" placeholder="Enter Product Details"> -->
 
             <label class="form-label" for="productImageURL1">Product Image URL 1</label>
             <input type="file" name="productImage1" id="productImageURL1" class="form-control" placeholder="Enter Image URL 1">
@@ -138,8 +144,8 @@
 
             <!-- Category Selection -->
             <label class="form-label" for="categoryId">Select Category</label>
-            <select name="categoryId" id="categoryId" class="form-select" required>
-                <option value="">-- Select Category --</option>
+            <select name="categoryId" id="categoryId" class="form-select" required onchange="getSubCategory()">
+                <option value="-1">-- Select Category --</option>
                 <c:forEach items="${allCategory}" var="s">
                     <option value="${s.categoryId}">${s.categoryName}</option>
                 </c:forEach>
@@ -148,7 +154,7 @@
             <!-- SubCategory Selection -->
             <label class="form-label" for="subCategoryId">Select Sub Category</label>
             <select name="subCategoryId" id="subCategoryId" class="form-select" required>
-                <option value="">-- Select SubCategory --</option>
+                <option value="-1">-- Select SubCategory --</option>
                 <c:forEach items="${allSubCategory}" var="s">
                     <option value="${s.subCategoryId}">${s.subCategoryName}</option>
                 </c:forEach>
@@ -167,6 +173,49 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+    function cleanFormBeforeSubmit() {
+        let basePrice = document.getElementById('basePrice');
+        let offerPrice = document.getElementById('offerPrice');
+        let offerPercentage = document.getElementById('offerPercentage');
 
+       
+        basePrice.value = basePrice.value.replace(/[₹,]/g, '');
+        offerPrice.value = offerPrice.value.replace(/[₹,]/g, '');
+
+       
+        offerPercentage.value = offerPercentage.value.replace(/[%a-zA-Z\s]/g, '');
+    }
+</script>
+	<script type="text/javascript">
+
+	function getSubCategory(){
+		console.log("category Change");
+		let categoryId = document.getElementById("categoryId").value;
+		console.log(categoryId);	
+		//url -> json REST 
+		
+		  $.get( "getallsubcategorybycategoryid/"+categoryId, function() {
+			})
+			  .done(function(data) {
+			    console.log(data);
+			    //fill the subcategory 
+			    $('#subCategoryId').empty().append('<option selected="selected" value="-1">Select SubCategory</option>')
+			    
+			    for (var i = 0; i < data.length; i++) {
+      			  $('#subCategoryId').append('<option value="' + data[i].subCategoryId + '">' + data[i].subCategoryName + '</option>');
+   				 }
+			    
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  
+		
+	}
+
+
+</script> 
+	
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.CartEntity;
+
 import com.grownited.entity.ProductEntity;
 import com.grownited.entity.UserEntity;
 import com.grownited.repository.CartRepository;
@@ -22,6 +23,23 @@ public class CartController {
 	
 	@Autowired
 	ProductRepository repositoryProduct;
+	
+	
+	@GetMapping("addtocart")
+	public String addToCart(Integer productId,HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId(); 
+		
+		CartEntity cart = new CartEntity(); 
+		cart.setProductId(productId);
+		cart.setUserId(userId);
+		cart.setQuantity(1);
+		
+		repositoryCart.save(cart);
+		return "redirect:/shopingcart";
+	}
+	
+	
 	
 	@GetMapping("cart")
 	public String cart(Model model) {
@@ -82,7 +100,7 @@ public class CartController {
 	@GetMapping("editcart")
 	public String editCart(Integer cartId,Model model) {
 		Optional<CartEntity> op = repositoryCart.findById(cartId);
-		if (op.isEmpty()) {
+		if (!op.isPresent()) {
 			return "redirect:/listcart";
 		} else {
 			model.addAttribute("cart",op.get());
@@ -106,5 +124,22 @@ public class CartController {
 		}
 		return "redirect:/listcart";
 	}
+	
+
+	@GetMapping("shopingcart")
+	public String shopingcart(HttpSession session,Model model) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId(); 
+		List<Object[]>	products  = repositoryCart.getAllCartItemByUserId(userId);
+		model.addAttribute("products",products);
+		return "ShopingCart";
+	}
+	
+	@GetMapping("removecart")
+	public String removeCart(Integer cartId) {
+		repositoryCart.deleteById(cartId);
+		return "redirect:/shopingcart";
+	}
+	
 	
 }
