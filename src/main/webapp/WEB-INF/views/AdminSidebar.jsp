@@ -145,8 +145,8 @@
 				<i class="bi bi-heart"></i><span>Wishlist</span><i class="bi bi-chevron-down ms-auto"></i>
 			</a>
 			<ul id="wishlist-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-				<li><a href="newCity"> <i class="bi bi-circle"></i><span>Add Wishlist</span></a></li>
-				<li><a href="listwishlist"> <i class="bi bi-circle"></i><span>List Wishlist</span></a></li>
+				<li><a href="#"> <i class="bi bi-circle"></i><span>Add Wishlist</span></a></li>
+				<li><a href="wishlist"> <i class="bi bi-circle"></i><span>List Wishlist</span></a></li>
 			</ul>
 		</li>
 		<!-- End Wishlist Nav -->

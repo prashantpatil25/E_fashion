@@ -107,7 +107,7 @@
                 <div class="product">
                  <!-- Wishlist Icon -->
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-                        <a href="addtowishlist/${p.productId}" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                        <a href="${pageContext.request.contextPath}/addtowishlist?productId=1" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
                             <img class="icon-heart1 dis-block trans-04" 
                                  src="ashion/images/icons/icon-heart-01.png" alt="Add to Wishlist">
                             <!-- <img class="icon-heart2 dis-block trans-04 ab-t-l" 

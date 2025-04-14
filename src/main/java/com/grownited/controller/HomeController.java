@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ProductEntity;
 import com.grownited.entity.UserEntity;
+import com.grownited.repository.CartRepository;
 import com.grownited.repository.ProductRepository;
 import com.grownited.repository.WishlistRepository;
 import com.grownited.service.CategoryService;
@@ -29,6 +30,8 @@ public class HomeController {
 	@Autowired
     private CategoryService categoryService;
     
+	@Autowired
+	CartRepository cartRepository;
     @Autowired
     private ProductService productService;
 	@GetMapping("home")
@@ -40,6 +43,8 @@ public class HomeController {
 		UserEntity user  = (UserEntity)session.getAttribute("user");
 		Integer totalWishlist  = wishlistRepository.findByUserId(user.getUserId()).size();
 		model.addAttribute("totalWishlist",totalWishlist);
+		Integer totalCartcount = cartRepository.countByUserId(user.getUserId());
+		model.addAttribute("totalCartcount",totalCartcount);
 		return "Home";
 	}
 		@PostMapping("savehome")

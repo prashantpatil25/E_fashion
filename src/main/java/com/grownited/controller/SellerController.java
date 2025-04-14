@@ -56,6 +56,11 @@ public class SellerController {
 			return "Seller";
 		}
 		
+		@GetMapping("sellerprofile")
+		public String userprofile() {
+			return "SellerProfile";
+		}
+		
 		@GetMapping("sellerproduct")
 		public String product(Model model) {
 	        List<CategoryEntity> allCategory = repoCategory.findAll();

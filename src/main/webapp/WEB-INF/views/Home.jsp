@@ -114,13 +114,19 @@
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
+						<a href="${pageContext.request.contextPath}/shopingcart" 
+   class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" 
+   data-notify="${totalCartcount}">
+    <i class="zmdi zmdi-shopping-cart"></i>
+</a>
 
-						<a href="viewuser?userId=1" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="${totalWishlist}">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+
+						<a href="${pageContext.request.contextPath}/wishlist" 
+   class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" 
+   data-notify="${totalWishlist}">
+    <i class="zmdi zmdi-favorite-outline"></i>
+</a>
+
 						<a href="viewuser?userId=1" class="flex-c-m trans-04 p-lr-25">
 							<img src="${user.profilePicPath}"  height="40px" width="40px" alt="Profile" class="rounded-circle" >
 							<span class="d-none d-md-block dropdown-toggle ps-2"></span>
@@ -864,7 +870,7 @@
 							</div>
 
 							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="addtowishlist/${p.productId}" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+								<a href="${pageContext.request.contextPath}/addtowishlist?productId=1" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
 									<img class="icon-heart1 dis-block trans-04" src="ashion/images/icons/icon-heart-01.png" alt="ICON">
 									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="ashion/images/icons/icon-heart-02.png" alt="ICON">
 								</a>

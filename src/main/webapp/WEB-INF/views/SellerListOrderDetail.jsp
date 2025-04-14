@@ -15,7 +15,7 @@
 </head>
 <body style="background: #DBE4EE">
 
-<jsp:include page="AdminHeader.jsp"></jsp:include>
+<jsp:include page="SellerHeader.jsp"></jsp:include>
 <jsp:include page="SellerSidebar.jsp"></jsp:include>
 
 <main id="main" class="main">

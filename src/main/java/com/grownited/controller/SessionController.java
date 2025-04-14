@@ -115,6 +115,9 @@ public class SessionController {
 			} else if (dbUser.getRole().equals("BUYER")) {
 
 				return "redirect:/home";
+			} else if (dbUser.getRole().equals("SELLER")) {
+
+				return "redirect:/sellerdashboard";
 			} else {
 				model.addAttribute("error", "Please contact Admin with Error Code #1109");
 				return "Login";
