@@ -150,6 +150,14 @@
 			</ul>
 		</li>
 		<!-- End Wishlist Nav -->
+		<li class="nav-item">
+			<a class="nav-link collapsed" data-bs-target="#report-nav" data-bs-toggle="collapse" href="#">
+				<i class="bi bi-journal-text"></i><span>Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+			</a>
+			<ul id="report-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+				<li><a href="adminactiveusers"> <i class="bi bi-circle"></i><span>User Report</span></a></li>
+				<li><a href="adminactivesellers"> <i class="bi bi-circle"></i><span>Seller Report</span></a></li>
+			</ul>
 
 		<li class="nav-heading">Manage</li>
 

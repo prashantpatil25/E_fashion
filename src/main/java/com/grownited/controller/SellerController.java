@@ -27,6 +27,7 @@ import com.grownited.repository.OrderDetailRepository;
 import com.grownited.repository.OrdersRepository;
 import com.grownited.repository.ProductRepository;
 import com.grownited.repository.SubCategoryRepository;
+import com.grownited.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -50,9 +51,22 @@ public class SellerController {
 	
 	@Autowired
 	Cloudinary cloudinary;
-	
+		
+		@Autowired
+		UserRepository userRepository;
+		
+		@Autowired
+		ProductRepository productRepository;
+		
+		
 		@GetMapping("sellerdashboard")
-		public String sellerDashboard() {
+		public String sellerDashboard(Model model) {
+			
+			Long totalUsers =userRepository.count();
+			Long totalProducts = productRepository.count();
+			
+			model.addAttribute("totalProducts",totalProducts);
+			model.addAttribute("totalUsers",totalUsers);
 			return "Seller";
 		}
 		

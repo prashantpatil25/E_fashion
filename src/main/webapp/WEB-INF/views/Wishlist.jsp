@@ -27,7 +27,7 @@
     <h2 style="text-align: center;">🧡 मेरी Wishlist</h2>
 
     <c:if test="${empty wishlist}">
-        <p style="text-align: center;">Wishlist खाली है!</p>
+        <p style="text-align: center;">Wishlist </p>
     </c:if>
 
     <c:if test="${not empty wishlist}">
