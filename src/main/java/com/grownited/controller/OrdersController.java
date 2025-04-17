@@ -62,7 +62,7 @@ public class OrdersController {
 //		send data to jsp ->
 //		model.addAttribute("orders", orders);
 //		}
-		List<Object[]> op = repoorders.getByOrdersId(orderId);
+		List<Object[]> op = repoorders.getByOrderId(orderId);
 		model.addAttribute("orders", op);
 		return "ViewOrders";
 	}

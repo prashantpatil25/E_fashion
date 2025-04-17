@@ -15,11 +15,14 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer>{
 
 	List<UserEntity> findByRole(String role);
 	Optional<UserEntity> findByEmail(String email);
+	/*
+	 * @Query("SELECT FUNCTION('DATE', u.createdAt), COUNT(u) FROM UserEntity u GROUP BY FUNCTION('DATE', u.createdAt)"
+	 * ) List<Object[]> countUsersByDate();
+	 */
 	
-	@Query("SELECT FUNCTION('DATE', u.createdAt), COUNT(u) FROM UserEntity u GROUP BY FUNCTION('DATE', u.createdAt)")
-	List<Object[]> countUsersByDate();
-
-
+	@Query(value= "select count(*)  from users where month(created_at) = :month and role = 'BUYER'", nativeQuery = true)
+	Integer countThisMonthUser(Integer month);
+	
 
  	
 	

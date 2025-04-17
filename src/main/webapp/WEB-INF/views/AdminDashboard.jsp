@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +13,9 @@
 
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
 </head>
 <body style="background: #DBE4EE">
 	<jsp:include page="AdminHeader.jsp"></jsp:include>
@@ -182,24 +185,56 @@
 									</ul>
 								</div>
 
+								
 								<div class="card-body">
-									<!-- <h5 class="card-title">
-										Reports <span>/Overall</span>
-									</h5> -->
-									<div class="card-body">
-							    <h5 class="card-title">Reports <span>/User Stats</span></h5>
-							
-							    <canvas id="userChart" style="height: 300px;"></canvas>
-							</div>
-									
-					<br><br>
-					<br><br>
-					
+                  <h5 class="card-title">User Analysis <span>/ Year</span></h5>
 
-								</div>
+                  <!-- Bar Chart -->
+                   <canvas id="myChart" width="400" height="180"></canvas>
 
-							</div>
-						</div>
+                   <script>
+					      var ctx = document.getElementById('myChart').getContext('2d');
+					      var myChart = new Chart(ctx, {
+					        type: 'bar',
+					        data: {
+					          labels: ['January', 'February', 'March', 'April', 'May', 'June','July','August','September','October','November','December'],
+					          datasets: [{
+					            label: 'user Data',
+					            data: [${monthWiseUsers[0]}, ${monthWiseUsers[1]}, ${monthWiseUsers[2]}, ${monthWiseUsers[3]}, ${monthWiseUsers[4]}, ${monthWiseUsers[5]}, ${monthWiseUsers[6]}, ${monthWiseUsers[7]}, ${monthWiseUsers[8]}, ${monthWiseUsers[9]}, ${monthWiseUsers[10]}, ${monthWiseUsers[11]}],
+					            backgroundColor: [
+					              'rgba(255, 99, 132, 0.2)',
+					              'rgba(54, 162, 235, 0.2)',
+					              'rgba(255, 206, 86, 0.2)',
+					              'rgba(75, 192, 192, 0.2)',
+					              'rgba(153, 102, 255, 0.2)',
+					              'rgba(255, 159, 64, 0.2)'
+					            ],
+					            borderColor: [
+					              'rgba(255, 99, 132, 1)',
+					              'rgba(54, 162, 235, 1)',
+					              'rgba(255, 206, 86, 1)',
+					              'rgba(75, 192, 192, 1)',
+					              'rgba(153, 102, 255, 1)',
+					              'rgba(255, 159, 64, 1)'
+					            ],
+					            borderWidth: 1
+					          }]
+					        },
+					        options: {
+					          scales: {
+					            y: {
+					              beginAtZero: true
+					            }
+					          }
+					        }
+					      });
+					    </script>
+                  <!-- End Bar Chart -->
+
+                </div>
+
+              </div>
+            </div>
 						<!-- End Reports -->
 
 					</div>
@@ -213,59 +248,17 @@
 	<!-- main content end  -->
 
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<c:if test="${not empty userData}">
-<script>
-    const labels = [
-        <c:forEach var="data" items="${userData}" varStatus="status">
-            "${data[0]}"<c:if test="${!status.last}">,</c:if>
-        </c:forEach>
-    ];
-
-    const counts = [
-        <c:forEach var="data" items="${userData}" varStatus="status">
-            ${data[1]}<c:if test="${!status.last}">,</c:if>
-        </c:forEach>
-    ];
-
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'User Registrations',
-            backgroundColor: '#0d6efd',
-            borderColor: '#0d6efd',
-            borderWidth: 1,
-            data: counts
-        }]
-    };
-
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: true
-                },
-                title: {
-                    display: true,
-                    text: 'Daily User Registration Count'
-                }
-            }
-        }
-    };
-
-    new Chart(document.getElementById('userChart'), config);
-</script>
-</c:if>
-
-
-
-
+	
+	
 
 	
 </body>

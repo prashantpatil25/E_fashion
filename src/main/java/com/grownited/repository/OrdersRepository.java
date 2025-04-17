@@ -8,10 +8,26 @@ import com.grownited.entity.OrdersEntity;
 
 @Repository
 public interface OrdersRepository extends JpaRepository<OrdersEntity, Integer>{
-	@Query(value ="select o.* ,u.first_name , u.last_name from users u , orders o where o.user_id = u.user_id",nativeQuery = true)
+	/*
+	 * @Query(value
+	 * ="select o.* ,u.first_name , u.last_name from users u , orders o where o.user_id = u.user_id"
+	 * ,nativeQuery = true) List<Object[]> getAll();
+	 * 
+	 * @Query(value
+	 * ="select o.* ,u.first_name , u.last_name from users u , orders o where o.user_id = u.user_id and o.order_id = :orderId"
+	 * ,nativeQuery = true) List<Object[]> getByOrdersId(Integer orderId);
+	 */
+	
+	@Query(value="select o.*, u.first_name, u.last_name from orders o, users u where u.user_id = o.user_id",nativeQuery = true)
 	List<Object[]> getAll();
-
-	@Query(value ="select o.* ,u.first_name , u.last_name from users u , orders o where o.user_id = u.user_id and o.order_id = :orderId",nativeQuery = true)
-	List<Object[]> getByOrdersId(Integer orderId);
+	
+	@Query(value="select o.*, u.first_name, u.last_name from orders o, users u where u.user_id = o.user_id and o.order_id = :orderId",nativeQuery = true)
+	List<Object[]> getByOrderId(Integer orderId);
+	
+	@Query(value = "select o.status,o.total_amount,u.first_name,u.last_name from orders o join users u on o.user_id = u.user_id and o.status = 'Pending'", nativeQuery = true)
+	List<Object[]> getAllPendingOrders();
+	
+	@Query(value = "select count(*) from orders where month(created_at) = :month", nativeQuery = true)
+	Integer countThisMonthOrder(Integer month);
 
 }
