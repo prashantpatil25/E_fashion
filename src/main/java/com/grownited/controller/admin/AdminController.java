@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.grownited.repository.OrdersRepository;
+import com.grownited.repository.PaymentRepository;
 import com.grownited.repository.ProductRepository;
 import com.grownited.repository.UserRepository;
 
@@ -29,6 +30,8 @@ public class AdminController {
 	OrdersRepository repositoryOrder;
 	
 	@Autowired
+	PaymentRepository paymentRepository;
+	@Autowired
 	UserRepository userRepository;
 	
 	@GetMapping("admindashboard")
@@ -36,7 +39,7 @@ public class AdminController {
 	    Long totalUsers = userRepository.count();
 	    Long totalOrders = repositoryOrder.count();
 	    Long totalProducts = repositoryproduct.count(); // 👈 New line
-
+	    Double totalRevenue = paymentRepository.getTotalRevenue(); 
 	    LocalDate today = LocalDate.now();
 	    int month = today.getMonthValue();
 
@@ -51,6 +54,8 @@ public class AdminController {
 	    model.addAttribute("totalOrders", totalOrders);
 	    model.addAttribute("totalUsers", totalUsers);
 	    model.addAttribute("totalProducts", totalProducts); 
+	    model.addAttribute("totalRevenue", totalRevenue);
+
 	    model.addAttribute("thisMonthUserCount", thisMonthUserCount);
 	    model.addAttribute("thisMonthOrderCount", thisMonthOrderCount);
 	    model.addAttribute("monthWiseUsers", monthWiseUsers);

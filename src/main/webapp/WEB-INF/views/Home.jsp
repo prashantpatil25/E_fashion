@@ -884,7 +884,7 @@
 							           Add to Cart
 							        </a>
 							
-							        <a href="buynow?productId=${p.productId}" 
+							        <a href="checkout?productId=${p.productId}" 
 							           class="flex-c-m stext-101 cl0 size-102 bor1 hov-btn1 trans-04 js-addcart-detail"
 							           style="font-size: 12px; padding: 5px 10px; background-color: #007bff; color: white;">
 							           Buy Now

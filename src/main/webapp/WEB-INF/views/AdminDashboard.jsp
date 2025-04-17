@@ -112,7 +112,7 @@
 											<i class="bi bi-currency-rupee"></i>
 										</div>
 										<div class="ps-3">
-											<h6>Rs.3,264</h6>
+											<h6>${totalRevenue}</h6>
 											<!-- <span class="text-success small pt-1 fw-bold">8%</span> <span
 												class="text-muted small pt-2 ps-1">increase</span>
  -->
