@@ -26,7 +26,7 @@ public class AjaxController {
 	public List<SubCategoryEntity> getAllSubCateByCatId(@PathVariable Integer categoryId) {
 		System.out.println(categoryId);
 		
-		List<SubCategoryEntity> allSubCategory  =  subCategoryRepository.findByCategoryId(categoryId);
+		List<SubCategoryEntity> allSubCategory  =  subCategoryRepository.findByCategoryCategoryId(categoryId);
 			
 		
 		return allSubCategory;

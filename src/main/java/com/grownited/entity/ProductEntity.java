@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,8 +19,15 @@ public class ProductEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer productId;	
 	private String productName;	
-	private Integer categoryId;	//pk
-	private Integer subCategoryId;	//fk : user
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private CategoryEntity category; 
+
+	@ManyToOne
+	@JoinColumn(name = "sub_category_id")
+	private SubCategoryEntity subCategory; 
+
+		//fk : user
 	private Double basePrice; // Change Integer to Double
 	private Double offerPrice; // Change Integer to Double
 
@@ -31,7 +40,6 @@ public class ProductEntity {
 	private String productImageURL3;	//PK 
 	private Integer quantity;	//fk : User
 	private Date createdAt;
-	
 	public Integer getProductId() {
 		return productId;
 	}
@@ -44,17 +52,17 @@ public class ProductEntity {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public Integer getCategoryId() {
-		return categoryId;
+	public CategoryEntity getCategory() {
+		return category;
 	}
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(CategoryEntity category) {
+		this.category = category;
 	}
-	public Integer getSubCategoryId() {
-		return subCategoryId;
+	public SubCategoryEntity getSub_Category() {
+		return subCategory;
 	}
-	public void setSubCategoryId(Integer subCategoryId) {
-		this.subCategoryId = subCategoryId;
+	public void setSub_Category(SubCategoryEntity subCategory) {
+		this.subCategory = subCategory;
 	}
 	public Double getBasePrice() {
 		return basePrice;
@@ -110,6 +118,9 @@ public class ProductEntity {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+	
+	
+	
 	
 		
 }

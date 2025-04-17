@@ -73,7 +73,7 @@ public class HomeController {
 		
 		@GetMapping("/category/{categoryId}")
 		public String getProductsByCategory(@PathVariable("categoryId") Integer categoryId, Model model, HttpSession session) {
-		    List<ProductEntity> filteredProducts = productRepository.findByCategoryId(categoryId);
+		    List<ProductEntity> filteredProducts = productRepository.findByCategoryCategoryId(categoryId);
 		    model.addAttribute("allProduct", filteredProducts);
 
 		    UserEntity user = (UserEntity) session.getAttribute("user");

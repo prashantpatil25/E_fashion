@@ -212,11 +212,13 @@
 	</main>
 	<!-- main content end  -->
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	<jsp:include page="AdminFooter.jsp"></jsp:include>
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
-	<script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<c:if test="${not empty userData}">
+<script>
     const labels = [
         <c:forEach var="data" items="${userData}" varStatus="status">
             "${data[0]}"<c:if test="${!status.last}">,</c:if>
@@ -259,6 +261,7 @@
 
     new Chart(document.getElementById('userChart'), config);
 </script>
+</c:if>
 
 
 

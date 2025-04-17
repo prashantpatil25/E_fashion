@@ -59,17 +59,17 @@
                                 <tbody>
                                      <c:forEach items="${productList}" var="m">
                                         <tr>
-                                        <td>${m[10]}</td>
                                         <td>${m[1]}</td>
+                                        <td>${m[3]}</td>
+                                        <td>${m[2]}</td>
                                         <td>${m[4]}</td>
                                         <td>${m[5]}</td>
-                                        <td>${m[6]}</td>
+                                        <td><img src="${m[6]}" height="70px" width="80px"></td>
                                         <td><img src="${m[7]}" height="70px" width="80px"></td>
                                         <td><img src="${m[8]}" height="70px" width="80px"></td>
-                                        <td><img src="${m[9]}" height="70px" width="80px"></td>
+                                        <td>${m[9]}</td>
+                                        <td>${m[10]}</td>
                                         <td>${m[11]}</td>
-                                        <td>${m[13]}</td>
-                                        <td>${m[14]}</td>
                                         <td>
                                                 <div class="d-flex gap-2">
                                                     <a href="viewproduct?productId=${m[0]}" class="btn btn-sm btn-primary">View</a>

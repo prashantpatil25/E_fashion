@@ -90,6 +90,7 @@ public class ProductController {
 			//Model 
 			//model.addAttribute("productList", productList);
 							//dataName , dataValue 
+			/* List<Object[]> listProduct = repositoryProduct.getAll(); */
 			List<Object[]> listProduct = repositoryProduct.getAll();
 			model.addAttribute("productList", listProduct);
 			return "ListProduct";
