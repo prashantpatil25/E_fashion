@@ -204,7 +204,7 @@ public class SessionController {
 	
 	
 	//submit on forgetpassword
-	@PostMapping("sendOtp")
+	@PostMapping("/sendotp")
 	public String sendOtp(String email,Model model) {
 		// email valid
 				Optional<UserEntity> op = repousers.findByEmail(email);

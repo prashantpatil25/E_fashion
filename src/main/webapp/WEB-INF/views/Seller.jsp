@@ -10,6 +10,7 @@
 
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
@@ -108,7 +109,7 @@
 											<i class="bi bi-currency-rupee"></i>
 										</div>
 										<div class="ps-3">
-											<h6>Rs.3,264</h6>
+											<h6>${totalRevenue}</h6>
 											<!-- <span class="text-success small pt-1 fw-bold">8%</span> <span
 												class="text-muted small pt-2 ps-1">increase</span>
  -->
@@ -228,9 +229,39 @@
 								</div>
 
 								<div class="card-body">
-									<h5 class="card-title">
-										Reports <span>/Overall</span>
-									</h5>
+									<h5 class="card-title">Payment Analysis <span>/ Year</span></h5>
+
+<!-- Bar Chart -->
+<canvas id="paymentChart" width="400" height="180"></canvas>
+
+<script>
+  var ctx = document.getElementById('paymentChart').getContext('2d');
+  var paymentChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June',
+               'July', 'August', 'September', 'October', 'November', 'December'],
+      datasets: [{
+        label: 'Payments',
+        data: [${monthWisePayments[0]}, ${monthWisePayments[1]}, ${monthWisePayments[2]}, 
+               ${monthWisePayments[3]}, ${monthWisePayments[4]}, ${monthWisePayments[5]}, 
+               ${monthWisePayments[6]}, ${monthWisePayments[7]}, ${monthWisePayments[8]}, 
+               ${monthWisePayments[9]}, ${monthWisePayments[10]}, ${monthWisePayments[11]}],
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
 
 					<br><br>
 					<br><br>

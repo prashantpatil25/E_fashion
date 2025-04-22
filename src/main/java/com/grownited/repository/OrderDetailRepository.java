@@ -8,9 +8,15 @@ import com.grownited.entity.OrderDetailEntity;
 
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetailEntity, Integer>{
-	@Query(value ="select od.* , p.product_name  from product p  , order_detail od where od.product_id = p.product_id",nativeQuery = true)
-	List<Object[]> getAll();
-
+	/*
+	 * @Query(value
+	 * ="select od.* , p.product_name  from product p  , order_detail od where od.product_id = p.product_id"
+	 * ,nativeQuery = true) List<Object[]> getAll();
+	 */
 	@Query(value ="select od.* , p.product_name  from product p  , order_detail od where od.product_id = p.product_id and od.order_detail_id=:orderDetailId",nativeQuery = true)
 	List<Object[]> getByOrderDetailId(Integer orderDetailId);
+	
+	@Query(value ="select od.*, p.product_name from product p left join order_detail od on od.product_id = p.product_id", nativeQuery = true)
+	List<Object[]> getAll();
+
 }

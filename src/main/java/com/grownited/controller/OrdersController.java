@@ -46,7 +46,7 @@ public class OrdersController {
 		//model.addAttribute("ordersList", ordersList);
 						//dataName , dataValue 
 		List<Object[]> listOrders = repoorders.getAll();
-		model.addAttribute("ordersList", listOrders);
+		model.addAttribute("listorders", listOrders);
 		return "ListOrders";
 	}
 

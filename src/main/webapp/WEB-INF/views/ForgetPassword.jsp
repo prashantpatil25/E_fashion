@@ -111,7 +111,9 @@
     <div class="form-container">
         <h2>Forget Password</h2>
 
-        <form action="sendOtp" method="post">
+         <form action="sendotp" method="post">
+       <%--  <form action="${pageContext.request.contextPath}/sendOtp" method="post"> --%>
+        
             <!-- Email Field -->
             <label class="form-label" for="email">E-mail</label>
             <input type="text" name="email" id="email" class="form-control" placeholder="Enter your registered email" required>

@@ -47,12 +47,13 @@ public class OrderDetailController {
 		return "redirect:/listorderdetail";
 	}
 	//listorderdetail
-		@GetMapping("listorderdetail")
-		public String listorderdetail(Model model) { 
-			List<Object[]> listorderdetail = repoorderdetail.getAll();
-			model.addAttribute("allorderdetail", listorderdetail);
-			return "ListOrderDetail";
-		}
+	@GetMapping("listorderdetail")
+	public String listorderdetail(Model model) { 
+	    List<Object[]> listorderdetail = repoorderdetail.getAll();
+	    model.addAttribute("allorderdetail", listorderdetail);
+	    return "ListOrderDetail";
+	}
+
 	
 		@GetMapping("vieworderdetail")
 		public String viewOrderDetail(Integer orderDetailId, Model model) {

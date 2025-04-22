@@ -133,7 +133,16 @@
                     <option value="${s.productId}">${s.productName}</option>
                 </c:forEach>
             </select>
-
+			
+			<!-- Order Dropdown -->
+			<label class="form-label" for="orderId">Order</label>
+			<select name="orderId" id="orderId" class="form-select" required>
+			    <option value="">-- Select Order --</option>
+			    <c:forEach items="${allOrders}" var="o">
+			        <option value="${o.orderId}">${o.orderId}</option>
+			    </c:forEach>
+			</select>
+			
             <!-- Submit Button -->
             <button type="submit" class="btn-submit">Save Order Detail</button>
 

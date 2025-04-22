@@ -54,27 +54,40 @@
 <body class="animsition">
 
 	<!-- Header -->
-	<header>
+<header>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">Free shipping for standard order
-						over $100</div>
+					<div class="left-top-bar">
+						Free shipping for standard order over $100
+					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25"> My Account </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25"> EN </a> <a href="#"
-							class="flex-c-m trans-04 p-lr-25"> USD </a>
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							Help & FAQs
+						</a>
+
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							My Account
+						</a>
+
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							EN
+						</a>
+
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							USD
+						</a>	
 					</div>
 				</div>
 			</div>
 
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
-<!-- Logo desktop -->		
+					
+					<!-- Logo desktop -->		
 					<a href="#" class="logo" >
 						<img src="ashion/images/icons/efashionlogo.png" alt="IMG-LOGO" width=130px height=110px>
 					</a>
@@ -82,80 +95,89 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu"><a href="home">Home</a></li>
-
-							<li><a href="products">Shop</a></li>
-
-							<li class="label1" data-label1="hot"><a href="shopingcart">Features</a>
+							<li class="active-menu">
+								<a href="home">Home</a>
 							</li>
 
-							<li><a href="blog">Blog</a></li>
+							<li>
+								<a href="products">Shop</a>
+							</li>
 
-							<li><a href="about">About</a></li>
+							<!-- <li class="label1" data-label1="hot">
+								<a href="home">Features</a>
+							</li> -->
 
-							<li><a href="contact">Contact</a></li>
+							<!-- <li>
+								<a href="blog">Blog</a>
+							</li>
+
+							<li>
+								<a href="about">About</a>
+							</li>
+
+							<li>
+								<a href="contact">Contact</a>
+							</li> -->
 						</ul>
-					</div>
+					</div>	
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<div
-							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div
-							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-							data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
+						<%-- <a href="${pageContext.request.contextPath}/shopingcart" 
+   class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" 
+   data-notify="${totalCartcount}">
+    <i class="zmdi zmdi-shopping-cart"></i>
+</a>
 
-						<a href="#"
-							class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-							data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
-						</a> <a href="#" class="flex-c-m trans-04 p-lr-25"> <img
-							src="${user.profilePicPath}" height="40px" width="40px"
-							alt="Profile" class="rounded-circle"><br>${user.firstName}
 
+						<a href="${pageContext.request.contextPath}/wishlist" 
+   class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" 
+   data-notify="${totalWishlist}">
+    <i class="zmdi zmdi-favorite-outline"></i>
+</a> --%>
+						<c:set var="loggedInUser" value="${sessionScope.user}" />
+						<a href="viewuser?userId=${loggedInUser.userId}" class="flex-c-m trans-04 p-lr-25">
+							<img src="${user.profilePicPath}"  height="40px" width="40px" alt="Profile" class="rounded-circle" >
+							<span class="d-none d-md-block dropdown-toggle ps-2"></span>
 						</a>
-
-
-
+						
+						
+						
 					</div>
 				</nav>
-			</div>
+			</div>	
 		</div>
 
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->
+			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="home"><img src="ashion/images/icons/efashionlogo.png"
-					alt="IMG-LOGO"></a>
+				<a href="home"><img src="ashion/images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div
-					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
 					<i class="zmdi zmdi-search"></i>
 				</div>
 
-				<div
-					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-					data-notify="2">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#"
-					class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
-					data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
+				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+					<i class="zmdi zmdi-favorite-outline"></i>
 				</a>
 			</div>
 
 			<!-- Button show menu -->
 			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box"> <span class="hamburger-inner"></span>
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
 				</span>
 			</div>
 		</div>
@@ -165,49 +187,74 @@
 		<div class="menu-mobile">
 			<ul class="topbar-mobile">
 				<li>
-					<div class="left-top-bar">Free shipping for standard order
-						over $100</div>
+					<div class="left-top-bar">
+						Free shipping for standard order over $100
+					</div>
 				</li>
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04"> Help & FAQs </a> <a
-							href="#" class="flex-c-m p-lr-10 trans-04"> My Account </a> <a
-							href="#" class="flex-c-m p-lr-10 trans-04"> EN </a> <a href="#"
-							class="flex-c-m p-lr-10 trans-04"> USD </a>
+						<a href="#" class="flex-c-m p-lr-10 trans-04">
+							Help & FAQs
+						</a>
+
+						<a href="viewuser" class="flex-c-m p-lr-10 trans-04">
+							My Account
+						</a>
+
+						<a href="#" class="flex-c-m p-lr-10 trans-04">
+							EN
+						</a>
+
+						<a href="#" class="flex-c-m p-lr-10 trans-04">
+							USD
+						</a>
 					</div>
 				</li>
 			</ul>
 
 			<ul class="main-menu-m">
-				<li><a href="home">Home</a> <span class="arrow-main-menu-m">
+				<li>
+					<a href="home">Home</a>
+					<span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
-				</span></li>
-
-				<li><a href="products">Shop</a></li>
-
-				<li><a href="shopingcart" class="label1 rs1" data-label1="hot">Features</a>
+					</span>
 				</li>
 
-				<li><a href="blog">Blog</a></li>
+				<li>
+					<a href="products">Shop</a>
+				</li>
 
-				<li><a href="about">About</a></li>
+				<li>
+					<a href="shopingcart" class="label1 rs1" data-label1="hot">Features</a>
+				</li>
 
-				<li><a href="contact">Contact</a></li>
+				<li>
+					<a href="blog">Blog</a>
+				</li>
+
+				<li>
+					<a href="about">About</a>
+				</li>
+
+				<li>
+					<a href="contact">Contact</a>
+				</li>
 			</ul>
 		</div>
 
 		<!-- Modal Search -->
-		<div
-			class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
-				
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="ashion/images/icons/icon-close2.png" alt="CLOSE">
+				</button>
+
 				<form class="wrap-search-header flex-w p-l-15">
 					<button class="flex-c-m trans-04">
 						<i class="zmdi zmdi-search"></i>
 					</button>
-					<input class="plh3" type="text" name="search"
-						placeholder="Search...">
+					<input class="plh3" type="text" name="search" placeholder="Search...">
 				</form>
 			</div>
 		</div>
@@ -293,7 +340,7 @@
 					<div class="container">
 			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
 				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
-					<img src="images/icons/icon-close.png" alt="CLOSE">
+					<img src="ashion/images/icons/icon-close.png" alt="CLOSE">
 				</button>
      
 				<div class="row">
@@ -434,11 +481,11 @@
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">GET IN TOUCH</h4>
 
-					<p class="stext-107 cl7 size-201">Any questions? Let us know in
+					<!-- <p class="stext-107 cl7 size-201">Any questions? Let us know in
 						store at 8th floor, 379 Hudson St, New York, NY 10018 or call us
-						on (+1) 96 716 6879</p>
+						on (+1) 96 716 6879</p> -->
 
-					<div class="p-t-27">
+					<!-- <div class="p-t-27">
 						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
 							class="fa fa-facebook"></i>
 						</a> <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
@@ -446,7 +493,7 @@
 						</a> <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
 							class="fa fa-pinterest-p"></i>
 						</a>
-					</div>
+					</div> -->
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
@@ -490,8 +537,8 @@
 						document.write(new Date().getFullYear());
 					</script>
 					All rights reserved | Made with <i class="fa fa-heart-o"
-						aria-hidden="true"></i> by <a href="home" target="_blank">MRSH
-						ashion</a>
+						aria-hidden="true"></i> by <a href="home" target="_blank">E 
+						fashion</a>
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>

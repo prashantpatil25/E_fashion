@@ -60,9 +60,9 @@
                 <c:forEach items="${orders}" var="m">
                     <tr>
                         <td>${m[3]}</td>
-                        <td>${m[5]}</td>
                         <td>${m[6]}</td>
-                        <td>${m[1]}</td>
+                        <td>${m[7]}</td>
+                        <td>${m[2]}</td>
                     </tr>
                 </c:forEach>
             </tbody>

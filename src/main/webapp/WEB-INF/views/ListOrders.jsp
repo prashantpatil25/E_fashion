@@ -1,88 +1,149 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>List Orders</title>
 
-<jsp:include page="AdminCss.jsp"></jsp:include>
+<!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-<link href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  
+  <jsp:include page="AdminCss.jsp"></jsp:include>
+
+
+
+<title>Admin | List Orders</title>
+
+
+<link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+
 
 </head>
-<body style="background: #DBE4EE">
+<body>
+	<jsp:include page="AdminHeader.jsp"></jsp:include>
 
-<jsp:include page="AdminHeader.jsp"></jsp:include>
-<jsp:include page="AdminSidebar.jsp"></jsp:include>
+	<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
-<main id="main" class="main">
-    <div class="pagetitle">
-        <h1>List Orders</h1>
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-                <li class="breadcrumb-item active">List Orders</li>
-            </ol>
-        </nav>
-    </div>
+	<main id="main" class="main">
 
-    <section class="section dashboard">
-        <div class="row" style="min-height: 500px;">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Orders<span>/all</span></h5>
+		<div class="pagetitle">
+			<h1>List Orders</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+					<li class="breadcrumb-item active">List Orders</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
 
-                        <table class="table datatable datatable-table table-hover" id="orders">
-                            <thead>
-                                <tr>
-                                    <th>Total Amount</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${ordersList}" var="m">
-                                    <tr>
-                                        <td>${m[3]}</td>
-                                        <td>${m[5]}</td>
-                                        <td>${m[6]}</td>
-                                        <td>${m[1]}</td>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <a href="vieworders?orderId=${m[0]}" class="btn btn-sm btn-primary">View</a>
-                                                <a href="deleteorders?orderId=${m[0]}" class="btn btn-sm btn-danger">Delete</a>
-                                                <a href="editorders?orderId=${m[0]}" class="btn btn-sm btn-warning">Edit</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
+		<section class="section dashboard">
+			<div class="row" style="min-height: 500px;">
 
-<jsp:include page="AdminFooter.jsp"></jsp:include>
-<jsp:include page="AdminJs.jsp"></jsp:include>
+				<!-- Left side columns -->
+				<div class="col-lg-12">
+					<div class="row">
+						<!-- Reports -->
+						<div class="col-12">
+							<div class="card">
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        let table = new DataTable('#orders');
-    });
-</script>
+								<div class="card-body">
+									<h5 class="card-title">
+										Orders<span>/all</span>
+									</h5>
+
+
+									<table class="table datatable datatable-table table-hover" id="orders">
+										<thead>																	                    
+						                    <th>Status</th>
+						                    <th>Total Amount</th>
+						                    <th>Created At</th>
+						                    <th>First name</th>
+						                    <th>Last name</th>
+						                    <th>Actions</th>
+										</thead>
+
+										<tbody>
+											<c:forEach items="${listorders}" var="o">
+												<tr>
+													<td>${o[2]}</td>
+							                        <td>${o[3]}</td>
+							                        <td>${o[1]}</td>
+							                   		<td>${o[6]}</td>
+							                   		<td>${o[7]}</td>
+
+													<td>
+														<div class="d-flex gap-2">
+														<a href="editorders?orderId=${o[0]}" class="btn btn-sm btn-primary">Edit</a> <a href="deleteorders?orderId=${o[0]}" class="btn btn-sm btn-danger">Delete</a>
+													 <a href="vieworders?orderId=${o[0]}" class="btn btn-sm btn-warning">View</a>
+														</div>
+													 </td>
+												</tr>
+											</c:forEach>
+										</tbody>
+
+									</table>
+
+
+
+								</div>
+
+							</div>
+						</div>
+						<!-- End Reports -->
+
+					</div>
+				</div>
+				<!-- End Left side columns -->
+
+				<!-- Right side columns -->
+				<!-- End Right side columns -->
+
+			</div>
+		</section>
+
+	</main>
+	<!-- main content end  -->
+
+
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
+
+	<jsp:include page="AdminJs.jsp"></jsp:include>
+	
+	
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+		let table = new DataTable('#orders');
+	});
+	</script>
 
 </body>
 </html>

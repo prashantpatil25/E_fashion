@@ -9,12 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/static/ashion/img/logo4.png"/>
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/ashion/img/logo4.png"/>
 
     <!-- Bootstrap & Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/ashion/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/ashion/css/util.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/ashion/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/ashion/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/ashion/css/util.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/ashion/css/main.css">
 
     <style>
         .product-list {
@@ -90,51 +90,48 @@
             margin-top: 30px;
             font-weight: bold;
         }
+
         .btn-buy {
-    background-color: #007bff; /* Blue */
-}
-
-
+            background-color: #007bff; /* Blue */
+        }
     </style>
 </head>
 <body>
 
-    <!-- Page content here -->
     <div class="container">
         <h1>Available Products</h1>
         <div class="product-list">
             <c:forEach items="${allProduct}" var="product">
                 <div class="product">
-                 <!-- Wishlist Icon -->
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-                        <a href="${pageContext.request.contextPath}/addtowishlist?productId=1" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                            <img class="icon-heart1 dis-block trans-04" 
-                                 src="ashion/images/icons/icon-heart-01.png" alt="Add to Wishlist">
-                            <!-- <img class="icon-heart2 dis-block trans-04 ab-t-l" 
-                                 src="ashion/images/icons/icon-heart-02.png" alt="Added to Wishlist"> -->
-                        </a>
+                    <!-- Wishlist Icon -->
+                    <a href="${pageContext.request.contextPath}/addtowishlist?productId=${product[0]}" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                        <img class="icon-heart1 dis-block trans-04" 
+                             src="${pageContext.request.contextPath}/ashion/images/icons/icon-heart-01.png" alt="Add to Wishlist">
+                    </a>
+
+                    <!-- Product Image -->
                     <div class="product-image-container">
-                        <img src="${product[5]}" alt="Product Image">
-    						
+                        <img src="${product[6]}" alt="Product Image">
                     </div>
-                    
+
                     <h3>${product[1]}</h3>
-                     
-                   
-                    <p>Base Price: ₹${product[2]}</p>
-                    <p>Offer Price: ₹${product[3]}</p>
-                    <p>Offer Percentage: ${product[4]}%</p>
-         
+                    <p>Base Price: ₹${product[3]}</p>
+                    <p>Offer Price: ₹${product[4]}</p>
+                    <p>Offer Percentage: ${product[2]}%</p>
+
                     <a href="userviewproduct?productId=${product[0]}" class="btn-custom">View Details</a>
                     <a href="addtocart?productId=${product[0]}" class="btn-custom">Add to Cart</a>
-                    <a href="buyNow?productId=${product[0]}" class="btn-custom btn-buy">Buy Now</a>
+                    <a href="checkout?productId=${product[0]}" class="btn-custom btn-buy">Buy Now</a>
                 </div>
             </c:forEach>
         </div>
     </div>
 
     <!-- JS Scripts -->
-    <script src="${pageContext.request.contextPath}/static/ashion/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="${pageContext.request.contextPath}/static/ashion/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/ashion/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/ashion/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Popper.js for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
 </body>
 </html>

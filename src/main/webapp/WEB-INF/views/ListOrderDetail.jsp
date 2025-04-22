@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Order Details<span>/all</span></h5>
 
-                        <table class="table datatable datatable-table table-hover" id="orderDetails">
+                        <table class="table datatable datatable-table table-hover" id="order_Detail">
                             <thead>
                                 <tr>
                                     <th>Quantity</th>
@@ -49,10 +49,10 @@
                             <tbody>
                                 <c:forEach items="${allorderdetail}" var="m">
                                     <tr>
-                                        <td>${m[4]}</td>
-                                        <td>${m[2]}</td>
+                                        <td>${m[0]}</td>
+                                        <td>${m[7]}</td>
                                         <td>${m[6]}</td>
-                                        <td>${m[5]}</td>
+                                        <td>${m[1]}</td>
                                         <td>
                                             <div class="d-flex gap-2">
                                                 <a href="vieworderdetail?orderDetailId=${m[0]}" class="btn btn-sm btn-primary">View</a>
@@ -80,7 +80,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        let table = new DataTable('#orderDetails');
+        let table = new DataTable('#order_Detail');
     });
 </script>
 

@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ import com.grownited.entity.UserEntity;
 import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.OrderDetailRepository;
 import com.grownited.repository.OrdersRepository;
+import com.grownited.repository.PaymentRepository;
 import com.grownited.repository.ProductRepository;
 import com.grownited.repository.SubCategoryRepository;
 import com.grownited.repository.UserRepository;
@@ -58,15 +60,34 @@ public class SellerController {
 		@Autowired
 		ProductRepository productRepository;
 		
+		@Autowired
+		PaymentRepository paymentRepository;
 		
 		@GetMapping("sellerdashboard")
 		public String sellerDashboard(Model model) {
 			
 			Long totalUsers =userRepository.count();
 			Long totalProducts = productRepository.count();
+		    Double totalRevenue = paymentRepository.getTotalRevenue();
+		    LocalDate today = LocalDate.now();
+		    int month = today.getMonthValue();
+
+		    Double thisMonthRevenue = paymentRepository.getTotalRevenueByMonth(month);
+		    model.addAttribute("thisMonthRevenue", thisMonthRevenue != null ? thisMonthRevenue : 0.0);
+		    
+
+		    Double[] monthWisePayments = new Double[12];
+		    for (int i = 1; i <= 12; i++) {
+		        Double revenue = paymentRepository.getTotalRevenueByMonth(i);
+		        monthWisePayments[i - 1] = (revenue != null) ? revenue : 0.0;
+		    }
 			
 			model.addAttribute("totalProducts",totalProducts);
 			model.addAttribute("totalUsers",totalUsers);
+			model.addAttribute("totalRevenue",totalRevenue);
+			
+			model.addAttribute("monthWisePayments", monthWisePayments);
+			 model.addAttribute("currentMonth", today.getMonth().name());
 			return "Seller";
 		}
 		

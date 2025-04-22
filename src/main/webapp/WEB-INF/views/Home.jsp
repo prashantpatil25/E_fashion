@@ -126,8 +126,8 @@
    data-notify="${totalWishlist}">
     <i class="zmdi zmdi-favorite-outline"></i>
 </a>
-
-						<a href="viewuser?userId=1" class="flex-c-m trans-04 p-lr-25">
+						<c:set var="loggedInUser" value="${sessionScope.user}" />
+						<a href="viewuser?userId=${loggedInUser.userId}" class="flex-c-m trans-04 p-lr-25">
 							<img src="${user.profilePicPath}"  height="40px" width="40px" alt="Profile" class="rounded-circle" >
 							<span class="d-none d-md-block dropdown-toggle ps-2"></span>
 						</a>
